@@ -35,6 +35,15 @@ class App extends React.Component<{}, IState> {
       ]
     }
     this.addItem = this.addItem.bind(this);
+    this.clear = this.clear.bind(this);
+  }
+
+  public clear(id:string) {
+    this.setState(state => ({
+      items: state.items.filter(
+        (data:any) => data.id !== id
+      )
+    }))
   }
 
   public addItem() {
@@ -55,7 +64,7 @@ class App extends React.Component<{}, IState> {
   }
   public render() {
     return (
-      <Grid>
+      <Grid className="container-inner">
         <ListGroup>
           <TransitionGroup>
           {
@@ -68,7 +77,9 @@ class App extends React.Component<{}, IState> {
                   >
                   <ListGroupItem 
                     className="table">
-                    <Button bsStyle="danger">
+                    <Button 
+                      bsStyle="danger"
+                      onClick={this.clear.bind(this,id)}>
                       &times;
                     </Button>
                     <div className="col">
