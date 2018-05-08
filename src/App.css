@@ -1,28 +1,28 @@
-.App {
-  text-align: center;
+.table{
+  display: flex;
+  align-items: center;
 }
+.col{
+ padding: 0px 5px;
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.fade-enter {
+  opacity: 0.01;
+  transform:   translate(-30px,0);
+    transform: translate3d(-30px,0,0);
 }
-
-.App-title {
-  font-size: 1.5em;
+.fade-enter-active {
+  opacity: 1;
+  transform:   translate(0,0);
+  transform: translate3d(0,0,0);
+  transition-property: transform, opacity;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
 }
-
-.App-intro {
-  font-size: large;
+.fade-exit {
+  opacity: 1;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
 }
